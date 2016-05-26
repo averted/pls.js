@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/averted/pls-node/issues"
   },
-  "homepage": "https://github.com/averted/pls-node#readme"
+  "homepage": "https://github.com/averted/pls-node#readme",
+  "dependencies": {
+    "globby": "^4.1.0"
+  }
 }
