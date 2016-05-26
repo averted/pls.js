@@ -1,8 +1,48 @@
 ;(function() {
   var exec = require('child_process').execSync
-    , globby = require('globby');
+    , glob = require('globby')
+    , sprintf = require('sprintf-js').sprintf;
 
-  var BLACKLIST = ['node_modules'];
+  var BLACKLIST = [];
+  var LANGS = [
+    {
+      name: 'JavaScript',
+      exts: ['js', 'jsx'],
+    }, {
+      name: 'CoffeScript',
+      exts: ['coffee'],
+    }, {
+      name: 'Go',
+      exts: ['go'],
+    }, {
+      name: 'PHP',
+      exts: ['php'],
+    }, {
+      name: 'Python',
+      exts: ['py', 'pyc'],
+    }, {
+      name: 'CSS',
+      exts: ['css', 'styl'],
+    }, {
+      name: 'Objective-C',
+      exts: ['m'],
+    }, {
+      name: 'C',
+      exts: ['c', 'h'],
+    }, {
+      name: 'Java',
+      exts: ['class'],
+    }, {
+      name: 'C++',
+      exts: ['cpp', 'cxx', 'hpp', 'hxx'],
+    }
+  ];
+  var COLOR = {
+    yellow: '\x1b[33m',
+    green: '\x1b[32m',
+    red: '\x1b[31m',
+    end: '\x1b[0m',
+  };
 
   var options = {
     // glob options
@@ -45,8 +85,9 @@
     }
   };
 
-  function readFiles(files) {
-    var code = {};
+  function parseLines(files) {
+    var code = {}
+      , results = {};
 
     files.forEach(function(path) {
       var lines = exec('cat ' + path + ' | wc -l', { encoding: 'utf8' })
@@ -57,10 +98,41 @@
       code[ext] += parseInt(lines);
     });
 
-    return code;
+    Object.keys(code).map(function(ext) {
+      LANGS.map(function(lang) {
+        if (lang.exts.indexOf(ext) >= 0) {
+          results[lang.name] = results[lang.name] || 0;
+          results[lang.name] += code[ext];
+        }
+      });
+    });
+
+    return results;
   };
 
-  globby(['**/*'], options.get()).then(function(files) {
-    console.dir(readFiles(files));
+  function stdout(code) {
+    var total = 0;
+
+    console.log('\n+------------------- PLS --------------------+');
+
+    Object.keys(code).map(function(lang) {
+      total += code[lang];
+    });
+
+    Object.keys(code).map(function(lang) {
+      var percent = Math.round(code[lang] / total * 100) + '%';
+
+      console.log(sprintf('|%s %-4s %-22s %+8s %s %s|', COLOR.yellow, percent, lang, code[lang], 'lines', COLOR.end));
+    });
+
+    console.log('+--------------------------------------------+');
+    console.log(sprintf('|%s %-20s %+15s %s %s|', COLOR.green, 'Total:', total, 'lines', COLOR.end));
+    console.log('+--------------------------------------------+\n');
+  };
+
+  glob(['**/*'], options.get()).then(function(files) {
+    var results = parseLines(files);
+
+    stdout(results);
   });
 })();
