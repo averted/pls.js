@@ -1,21 +1,18 @@
 {
-  "name": "pls-node",
+  "name": "pls-js",
   "version": "1.0.0",
-  "description": "PLS",
-  "main": "pls.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Programming Language Statistics within a directory",
+  "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/averted/pls-node.git"
+    "url": "git+https://github.com/averted/pls-js.git"
   },
   "author": "averted",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/averted/pls-node/issues"
+    "url": "https://github.com/averted/pls-js/issues"
   },
-  "homepage": "https://github.com/averted/pls-node#readme",
+  "homepage": "https://github.com/averted/pls-js#readme",
   "dependencies": {
     "globby": "^4.1.0",
     "sprintf-js": "^1.0.3"
