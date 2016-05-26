@@ -2,4 +2,4 @@
 'use strict';
 
 var pls = require('../lib/');
-pls.run();
+pls.init();
