@@ -3,7 +3,7 @@
     , glob = require('globby')
     , sprintf = require('sprintf-js').sprintf;
 
-  var BLACKLIST = [];
+  var BLACKLIST = ['node_modules'];
   var LANGS = [
     {
       name: 'JavaScript',
