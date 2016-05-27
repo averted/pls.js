@@ -1,11 +1,11 @@
 {
-  "name": "pls-js",
+  "name": "pls.js",
   "version": "1.0.0",
   "description": "Programming Language Statistics within a directory",
   "main": "./lib/pls",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/averted/pls-js.git"
+    "url": "git+https://github.com/averted/pls.js.git"
   },
   "author": {
     "name": "Alexander Vitiuk",
@@ -13,9 +13,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/averted/pls-js/issues"
+    "url": "https://github.com/averted/pls.js/issues"
   },
-  "homepage": "https://github.com/averted/pls-js#readme",
+  "homepage": "https://github.com/averted/pls.js#readme",
   "engines": {
     "node": ">=0.8"
   },
