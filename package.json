@@ -1,7 +1,7 @@
 {
   "name": "pls.js",
   "version": "1.0.0",
-  "description": "Programming Language Statistics within a directory",
+  "description": "Programming Language Statistics within a directory.",
   "main": "./lib/pls",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
     "name": "Alexander Vitiuk",
     "url": "http://github.com/averted"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/averted/pls.js/issues"
   },
