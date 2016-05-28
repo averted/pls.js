@@ -1,6 +1,6 @@
 {
   "name": "pls.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Programming Language Statistics within a directory.",
   "main": "./lib/pls",
   "repository": {
