@@ -1,7 +1,7 @@
-# PLS
+# pLS
 Programming Language Statistics.
 
-![PLS](https://github.com/averted/pls.js/blob/gif/pls.gif?raw=true)
+![pLS](https://github.com/averted/pls.js/blob/gif/pls.gif?raw=true)
 
 ## Installation
 Either fork or [npm](http://npmjs.org) install:
