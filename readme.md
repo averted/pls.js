@@ -10,7 +10,7 @@ npm install -g pls.js
 ```
 
 ## Usage
-After installation, go into your project's directory and run `pls` to see language statistics.
+After installation, go into any project's directory and run `pls` to see language statistics.
 ```
 pls [-options]
 ```
